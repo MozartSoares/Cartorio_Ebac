@@ -151,6 +151,7 @@ int main() //primeira funcao a sercarregada do menu principal
 		printf("\t2 - Consultar nomes\n");
 		printf("\t3 - Deletar nomes\n");
 		printf("\t4 - Créditos\n");
+		printf("\t5 - Sair do sistema\n");
 		printf("opção: "); //fim das opcoes
 
 		scanf("%d" , &opcao); // armazena na variavel opcao valor digitado pelo usuário
@@ -174,6 +175,11 @@ int main() //primeira funcao a sercarregada do menu principal
 			case 4:
 			creditos();//chama a funcao dos créditos
 			break;	
+			
+			case 5:
+			printf("Obrigado por utilizar o sistema\n");
+			return 0; //comando para retornar 0 (fechar o programa e quebrar laços de repetição,funções e etc...)
+			break;
 				
 			default:
 			indisponivel();//chama a funcao indisponivel
