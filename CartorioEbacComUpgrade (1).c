@@ -74,7 +74,7 @@ int consultar()//funcao de consultar nomes
 	FILE *file;
 	file = fopen(cpf,"r"); //comando "r" de read para ler o arquivo
 		
-	if(file == NULL)
+	if(file == NULL)// mensagem para exibir se o arquivo for inexistente
 	{
 		printf("Não foi possível encontrar o arquivo. \n"); //comando a ser realizado se nao encontrar o arquivo
 	}
@@ -83,14 +83,14 @@ int consultar()//funcao de consultar nomes
 		printf("%s", conteudo);
 		printf("\n\n");
 	}
+	fclose(file);
 	system("pause");
 }
 int deletar()//funcao de deletar nomes
 {	
 	int opcao=0;
 	char cpf[40];
-	char conteudo[200];
-		
+	char conteudo[500];
 	printf("Digite o cpf a ser deletado: ");
 	scanf("%s",cpf); //%s armazena opção do usuário numa string de variáveis
 		
@@ -100,28 +100,32 @@ int deletar()//funcao de deletar nomes
 	if(file == NULL)
 	{
 		printf("Não foi possível encontrar o arquivo. \n");
+		system("pause");
+		return 0;
 	}
-	while(fgets(conteudo,200,file) != NULL)
+	while(fgets(conteudo,500,file) != NULL)
 	{
-		printf("\nEssas são as informações do usuário que será deletado:  \n");// mostra conteudo para usuário e pergunta se tem certeza que deseja deletar
-		printf("%s", conteudo); 
-		printf("\n\n");
-		printf("Tem certeza de que deseja deletar este usuário? \n");
-		printf("\t1 - Prosseguir\n"); //opcao 1
-		printf("\t2 - Cancelar\n"); //opcao 2
-	}
-	system("pause");
+		printf("%s", conteudo); // mostra conteudo para usuário 
+	}	
+	printf("\nTem certeza de que deseja deletar este usuário? \n");
+	printf("\t1 - Prosseguir\n"); //opcao 1
+	printf("\t2 - Cancelar\n"); //opcao 2
+	
+	printf("Digite o número da opção: ");
+	scanf("%d" , &opcao);
 	
 	switch(opcao)
 	{
 		case 1: //usuário escolhe opcao 1 "prosseguir"
+		fclose(file);
 		remove(cpf);
-		printf("Usuário deletado com sucesso \n"); 
+		printf("Usuário deletado com sucesso \n");
 		system("pause");
 		break;
 	
-		case 2: //usuário escolhe opcao 1 "cancelar"
+		case 2: //usuário escolhe opcao 2 "cancelar"
 		printf("O usuário não foi deletado \n");
+		fclose(file);
 		system("pause");
 		break;
 		
@@ -129,7 +133,6 @@ int deletar()//funcao de deletar nomes
 		indisponivel();
 		break;	
 	}
-	//adicionar sistema para mostar infos do usuario antes de deletar, usar um sistema similar da função consulta no trecho do while
 }
 int indisponivel()// funcao para ser chamada quando opcao inexistente for escolhida
 {
@@ -151,8 +154,8 @@ int main() //primeira funcao a sercarregada do menu principal
 		printf("\t2 - Consultar nomes\n");
 		printf("\t3 - Deletar nomes\n");
 		printf("\t4 - Créditos\n");
-		printf("\t5 - Sair do sistema\n");
-		printf("opção: "); //fim das opcoes
+		printf("\t5 - Sair\n");
+		printf("\nDigite o número da opção: "); //fim das opcoes
 
 		scanf("%d" , &opcao); // armazena na variavel opcao valor digitado pelo usuário
 	
@@ -178,7 +181,7 @@ int main() //primeira funcao a sercarregada do menu principal
 			
 			case 5:
 			printf("Obrigado por utilizar o sistema\n");
-			return 0; //comando para retornar 0 (fechar o programa e quebrar laços de repetição,funções e etc...)
+			return 0; //comando para retornar 0 (fechar o programa quebrando laços de repetição, funções e etc...)
 			break;
 				
 			default:
