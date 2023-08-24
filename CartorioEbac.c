@@ -29,37 +29,19 @@ int registro()//função responsavel pelo cadastro
 	fclose(file); //fecha o arquivo
 	
 	file = fopen(arquivo, "a"); //a é o comando para accessar o arquivo
-	fprintf(file,"\nO nome é: ");
-	fclose(file);
 	
 	printf("Digite o nome a ser cadastrado: ");
 	scanf("%s", nome);
-	
-	file = fopen(arquivo, "a");
-	fprintf(file,nome);
-	fclose(file);
+    fprintf(file,"\nO nome é: %s", nome);
 
-	file = fopen(arquivo, "a"); 
-	fprintf(file,"\nO sobrenome é: ");
-	fclose(file);
-
-	printf("Digite o sobrenome a ser cadastrado: ");
-	scanf("%s",sobrenome);
-	
-	file = fopen (arquivo, "a");
-	fprintf(file,sobrenome);
-	fclose(file);
-	
-	file = fopen(arquivo, "a"); 
-	fprintf(file,"\nO cargo é: ");
-	fclose(file);
-	
-	printf("Digite o cargo a ser cadastrado: ");
-	scanf("%s", cargo);
-	
-	file = fopen(arquivo, "a");
-	fprintf(file,cargo);
-	fclose(file); //esses sao comandos para inserir de modo organizado no bloco de notas as informacoes registradas
+    printf("Digite o sobrenome a ser cadastrado: ");
+    scanf("%s",sobrenome);
+    fprintf(file,"\nO sobrenome é: %s", sobrenome);
+    
+    printf("Digite o cargo a ser cadastrado: ");
+    scanf("%s",cargo); 
+    fprintf(file,"\nO cargo é: %s",cargo);
+    fclose(file);
 	
 	system("pause");
 }
