@@ -1,3 +1,2 @@
 # Cartorio_Ebac
-Primeiro projeto desenvolvido /
-First project developed
+Projeto de um "Cartório" para registrar, deletar e consultar nomes utilizando linguagem C
