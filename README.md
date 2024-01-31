@@ -19,6 +19,9 @@ Esse foi meu ponto de partida na jornada de desenvolvimento. Realizado durante o
 
 Para testar o projeto, utilize a senha "admin" durante a autenticação.
 
+![image](https://github.com/MozartSoares/Cartorio_Ebac/assets/142760312/e3c030cd-3d0b-4d88-8bc7-58c68181fc98)
+
+
 ## Notas
 
 - Por ser desenvolvido em linguagem C, o projeto não apresenta uma interface gráfica personalizada.
